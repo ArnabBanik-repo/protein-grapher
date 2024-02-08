@@ -2,14 +2,6 @@
 
 Protein Grapher helps you understand how drugs travel inside a cell to reach their targets. 
 
-# Protein Grapher: A Beginner's Guide
-
-Welcome to Protein Grapher, an easy-to-use application designed to help you understand how drugs interact with plasma proteins within cells.
-
-## What It Does
-
-Protein Grapher is a tool that shows you the journey a drug protein takes to connect with all the plasma proteins in a cell.
-
 ## Key Features
 
 - Works with multiple drug proteins simultaneously
