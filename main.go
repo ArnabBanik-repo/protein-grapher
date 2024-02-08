@@ -15,6 +15,9 @@ const (
 	saveDirectory     string = "./output"
 	mappingDirectory  string = "./output/mappedPlasma"
 	unmappedDirectory string = "./output/unmappedPlasma"
+	routesPath        string = "./data/routes.csv"
+	plasmaPath        string = "./data/plasma.csv"
+	sourcesPath       string = "./data/sources.csv"
 	routeFile         int    = 0
 	plasmaFile        int    = 1
 	sourceFile        int    = 2
@@ -25,9 +28,9 @@ func main() {
 	createSaveDirectory(mappingDirectory)
 	createSaveDirectory(unmappedDirectory)
 
-	routeFileName := flag.String("routes", "./db/routes.csv", "Csv file with the routes specified in cols A and B")
-	plasmaFileName := flag.String("plasma", "./db/plasma.csv", "Csv file with the plasma proteins specified in col A")
-	sourcesFileName := flag.String("sources", "./db/sources.csv", "Csv file with the drug proteins specified in col A")
+	routeFileName := flag.String("routes", routesPath, "Csv file with the routes specified in cols A and B")
+	plasmaFileName := flag.String("plasma", plasmaPath, "Csv file with the plasma proteins specified in col A")
+	sourcesFileName := flag.String("sources", sourcesPath, "Csv file with the drug proteins specified in col A")
 	flag.Parse()
 
 	ch1 := make(chan bool)

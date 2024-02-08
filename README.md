@@ -19,7 +19,7 @@ Protein Grapher is a tool that shows you the journey a drug protein takes to con
 
 1. **Download the Program**: Go to the Releases Page and download the version that matches your operating system.
 
-2. **Prepare Your Files** (Optional): If you have route, plasma protein, and source files, create a folder named `db` and place these files inside it.
+2. **Prepare Your Files** (Optional): If you have route, plasma protein, and source files, create a folder named `data` and place these files inside it.
 
 3. **Open Your Terminal or Command Prompt**: Navigate to the folder where you downloaded the program and your files.
 
