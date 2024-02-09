@@ -8,8 +8,8 @@ import (
 )
 
 func ProcessDrug(drug models.Protein) {
-	x := db.Routes.ShortestPaths(drug)
-	paths := []models.ProteinList{}
+  x := db.Routes.ShortestPaths(drug)
+  paths := []models.ProteinList{}
 	mappedPlasma := models.ProteinList{}
 	unmappedPlasma := []models.ProteinList{}
 

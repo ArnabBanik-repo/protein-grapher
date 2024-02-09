@@ -14,15 +14,17 @@ func (p *ProteinNetwork) Insert(a, b Protein) {
 
 func (graph ProteinNetwork) ShortestPaths(source Protein) []ProteinList {
 	distances := make(map[Protein]int)
-	paths := make(map[Protein][]Protein)
+	paths := make(map[Protein]ProteinList)
 
-	for node := range graph {
-		distances[node] = -1 // Initialize distances to -1 (representing infinity)
-		paths[node] = []Protein{}
+	for _, nodeList := range graph {
+		for _, node := range nodeList {
+			distances[node] = -1 // Initialize distances to -1 (representing infinity)
+			paths[node] = ProteinList{}
+		}
 	}
 
 	distances[source] = 0
-	paths[source] = []Protein{source}
+	paths[source] = ProteinList{source}
 
 	queue := []Protein{source}
 	for len(queue) > 0 {
@@ -39,7 +41,7 @@ func (graph ProteinNetwork) ShortestPaths(source Protein) []ProteinList {
 	}
 
 	result := []ProteinList{}
-	for node := range graph {
+	for node := range paths {
 		if node != source {
 			result = append(result, paths[node])
 		}
@@ -47,3 +49,31 @@ func (graph ProteinNetwork) ShortestPaths(source Protein) []ProteinList {
 	return result
 }
 
+func (p ProteinNetwork) HasCycle() bool {
+	visited := set{}
+	for protein := range p {
+		if visited[protein] {
+			continue
+		}
+		visited[protein] = true
+
+		dfs_visited := set{}
+		if dfs(p, protein, dfs_visited) {
+			return true
+		}
+	}
+	return false
+}
+
+func dfs(p ProteinNetwork, protein Protein, dfs_visited set) bool {
+	if dfs_visited[protein] {
+		return true
+	}
+	dfs_visited[protein] = true
+	for _, neighbour := range p[protein] {
+		if dfs(p, neighbour, dfs_visited) {
+			return true
+		}
+	}
+	return false
+}
