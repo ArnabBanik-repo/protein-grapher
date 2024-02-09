@@ -67,7 +67,7 @@ func main() {
 
 func createSaveDirectory(path string) {
 	if _, err := os.Stat(path); err == nil {
-		fmt.Printf("%q directory already exists. Existing files will be overwritten.\nContinue? (Y/n)\n", path)
+		fmt.Printf("%q directory already exists. Existing files will be overwritten.\nContinue? (Y/n) ", path)
 
 		var ch string
 		fmt.Scanf("%s", &ch)
