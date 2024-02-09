@@ -24,14 +24,14 @@ const (
 )
 
 func main() {
-	createSaveDirectory(saveDirectory)
-	createSaveDirectory(mappingDirectory)
-	createSaveDirectory(unmappedDirectory)
-
 	routeFileName := flag.String("routes", routesPath, "Csv file with the routes specified in cols A and B")
 	plasmaFileName := flag.String("plasma", plasmaPath, "Csv file with the plasma proteins specified in col A")
 	sourcesFileName := flag.String("sources", sourcesPath, "Csv file with the drug proteins specified in col A")
 	flag.Parse()
+
+	createSaveDirectory(saveDirectory)
+	createSaveDirectory(mappingDirectory)
+	createSaveDirectory(unmappedDirectory)
 
 	ch1 := make(chan bool)
 	ch2 := make(chan bool)
